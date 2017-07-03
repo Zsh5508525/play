@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<script type="text/javascript" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+	
+	<body>
+		<div class="all">
+			<div class="head">
+				<div class="logo">
+					
+				</div>
+			</div>
+		</div>
+		<div class="login">
+			<div class="login-cen">
+				<div class="name">
+					<input placeholder="手机号/邮箱/会员名" value="" />
+					<span>x</span>
+				</div>
+				<div class="password">
+					<input placeholder="请输入密码" type="password"  value=""/>
+					<span>x</span>
+					<i><img src="img/QQ20170626170017.png"></i>
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<div class="nav-cen clearfix">
+				<div class="zhuce">
+					<a href="">免费注册</a>
+				</div>
+				<div class="forgin">
+					<a href="">忘记密码</a>
+				</div>
+			</div>
+		</div>
+		<div class="lagin">
+			<div class="lagin-cen">
+				<button >
+					登录
+				</button>
+			</div>
+		</div>
+		<div class="duanx">
+			<div class="duanx-cen">
+				<button >
+					短信验证码登录
+				</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+		$(document).click(function(){
+			$(".name span").hide();
+		})
+			
+		$(".name input").bind('input propertychange',function(){
+			var keyWord = $(".name input").val();
+			if(keyWord != "" && keyWord != null && keyWord != 0){
+				$(".name span").css({"display":"inline-block"});
+			}else{
+				$(".name span").hide();
+			}
+		});
+		$('.name span').click(function(event){
+			event.stopPropagation();
+			$(".name input").val("");
+			$('.name span').hide();
+		})
+		$(".name input").click(function(event){
+			$(".password span").hide();
+			event.stopPropagation();
+			if($(".name input").val() != ""){
+				$(".name span").css({"display":"inline-block"});
+			}
+			
+		})
+		$(document).click(function(){
+			$(".password span").hide();
+		})
+			
+		$(".password input").bind('input propertychange',function(){
+			var keyWord = $(".password input").val();
+			if(keyWord != "" && keyWord != null && keyWord != 0){
+				$(".password span").css({"display":"inline-block"});
+			}else{
+				$(".password span").hide();
+			}
+		});
+		$('.password span').click(function(event){
+			event.stopPropagation();
+			$(".password input").val("");
+			$('.password span').hide();
+		})
+		$(".password input").click(function(event){
+			$(".name span").hide();
+			event.stopPropagation();
+			if($(".password input").val() != ""){
+				$(".password span").css({"display":"inline-block"});
+			}
+			if($(".password input").val() != "" && ($(".name input").val() != "")){
+				$(".lagin-cen button").css({"background":"-webkit-linear-gradient(left,#ff9000,#ff5000) no-repeat"})
+			}else{
+				$(".lagin-cen button").css({"background":"#f7c7b1"});
+			}
+		})
+		var a = 1;
+		$("i img").click(function(){
+			if(a == 1){
+				$(".password input").attr("type","");
+				a = 2;
+			}else{
+				if(a == 2){
+					$(".password input").attr("type","password");
+					a = 1;
+				}
+			}	
+		})
+			
+		</script>
+	</body>
+</html>

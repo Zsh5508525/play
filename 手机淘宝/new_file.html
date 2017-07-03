@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+	
+	<body>
+		<div>
+			<span class="price" style="color: red;">500</span>
+			<span class="reduce">-</span>
+			<span class="num">0</span>
+			<span class="add">+</span>
+
+		</div>
+		<div style="height: 200px;"></div>
+		<div>
+			<span class="price" style="color: red;">2000</span>
+			<span class="reduce">-</span>
+			<span class="num">0</span>
+			<span class="add">+</span>
+
+		</div>
+		<div style="height: 200px;"></div>
+		<div>
+			<span class="price" style="color: red;">5000</span>
+			<span class="reduce">-</span>
+			<span class="num">0</span>
+			<span class="add">+</span>
+
+		</div>
+		
+		
+		<div>
+			<i style="color: #f50;">0</i>圆
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+		$(".add").click(function(){
+			var a = $(this).siblings(".num").html(); //获取数量
+			var a = parseInt(a); 
+			var a = a + 1;
+			$(this).siblings(".num").html(a); //获取数量的值
+			var b = $("div i").html(); // 获取商品总价格
+			var b = parseInt(b); 
+			var c =$(this).siblings(".price").html(); //获取商品价格
+			var c = parseInt(c);
+			d = b + c;
+			$("div i").html(d);
+		})
+		$(".reduce").click(function(){
+			var a = $(this).siblings(".num").html();
+			var a = parseInt(a);
+			var a = a - 1;
+			$(this).siblings(".num").html(a);
+			var b = $("div i").html();
+			var b = parseInt(b);
+			var c = $(this).siblings(".price").html();
+			var c = parseInt(c);
+			d = b - c;
+			$("div i").html(d);
+		})
+			
+			
+			
+			
+			$(".children span").click(function(){
+				var c = $(this).parent().find(".on").length;
+				var b = $(this).parent().find("span").length; //获取长度和数量
+//				alert(b);
+				if($(this).hasClass("on")){
+					$(this).removeClass("on");
+					c = c - 1;
+					if(c < b){
+						$(this).parent(".children").siblings(".parent").removeClass("on");
+					}
+				}else{
+					c = c + 1;
+					$(this).addClass("on");
+					if(c == b){
+						$(this).parent(".children").siblings(".parent").addClass("on");
+					}
+				}
+			})
+
+		</script>
+</html>
